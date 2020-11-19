@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Tom & Jerry" icon-name="standard:default">
+        <lightning-layout>
+
+            <template if:true={showTom}>
+                <lightning-layout-item>
+                    <img src={tomLogo} alt="Tom Img" />
+                </lightning-layout-item>
+                <lightning-layout-item>
+                    <lightning-button variant="brand" label="Show Jerry" onclick={changeImages} ></lightning-button>
+                </lightning-layout-item>
+            </template>
+            <template if:false={showTom}>
+                <lightning-layout-item>
+                    <img src={jerryLogo} alt="Jerry Img" />
+                </lightning-layout-item>
+                <lightning-layout-item>
+                    <lightning-button variant="brand" label="Show Tom" onclick={changeImages} ></lightning-button>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+        
+    </lightning-card>
+</template>
