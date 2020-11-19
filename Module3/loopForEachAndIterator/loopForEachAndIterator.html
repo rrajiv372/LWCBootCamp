@@ -1,0 +1,31 @@
+<template>
+	<lightning-card title="For Each Demo" icon-name="standard:contact">
+			<table class="slds-table slds-m-around_medium">	
+				<tr>
+                    <th>Index</th>
+    				<th>Id</th>
+					<th>Name</th>
+    				<th>Email</th>
+				</tr>			
+                <template if:true={contacts.length} for:each={contacts} for:item="contact" for:index='index'>
+					<tr key={contact.Id}>
+                        <td>{index}</td>
+                        <td>{contact.Id}</td> 
+                        <td>{contact.Name}</td>
+                        <td>{contact.Email}</td> 
+                    </tr>     			
+                </template>
+            </table>
+        </lightning-card>
+		<lightning-card title="Iterator Demo" icon-name="standard:contact">
+            <ul class="slds-m-around_medium">
+                <template iterator:con={contacts}>
+                    <li key={con.value.Id}>
+                        <hr if:true={con.first}></hr>
+                        <div class="slds-m-around_medium">{con.value.Name}-{con.value.Email}</div>
+                        <hr if:true={con.last} ></hr>
+                    </li>
+                </template>
+            </ul>
+        </lightning-card>
+</template>
