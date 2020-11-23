@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Full Calculator" icon-name="custom:custom34">
+        
+        <c-calculator-detail calc-str={calcStr} result={result}></c-calculator-detail>
+        
+        <div class="slds-grid slds-wrap slds-var-m-around_medium" style="width: 260px">
+            <template for:each={buttonItems} for:item="item" for:index="index">
+                <div class="slds-col slds-size_1-of-4  slds-var-m-top_medium slds-border_top slds-p-top_small"  key={item.key}>
+                    <c-calculator-key-pad  key-item={item} oncalcpadclick={handleCalculate}></c-calculator-key-pad>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+    
+</template>
