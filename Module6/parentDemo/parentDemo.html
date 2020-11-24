@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Parent" icon-name="standard:contact_list">
+        <div onchildbtnclick={handleChildClick}>
+            <div class="slds-grid slds-wrap slds-var-m-around_medium">
+                <template if:true={childs}>
+                <template for:each={childs} for:item="child">
+                    <div class="slds-col slds-var-m-right_small slds-box"  key={child.title}>
+                        <p>{child.title}: {child.status}ed  </p>
+                        <c-child-demo child-title={child.title} ></c-child-demo>
+                    </div>
+                </template>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
