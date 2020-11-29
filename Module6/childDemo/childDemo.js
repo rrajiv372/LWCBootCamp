@@ -4,7 +4,7 @@ export default class ChildDemo extends LightningElement {
     @api
     childTitle;
     @track
-    buttonLabel = 'Select';
+    buttonLabel = 'Select'; 
     variant = 'success';
 
     handleClick(event)

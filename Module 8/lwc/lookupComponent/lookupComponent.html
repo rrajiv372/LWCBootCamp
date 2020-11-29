@@ -1,0 +1,21 @@
+<template>
+
+    <template if:false={isRowClicked}>
+        <c-lookup-search ondatasearch={handleDataSearch}></c-lookup-search>
+
+        <div ondatarowclick={handleRowSelection}>
+            <template if:true={accList.data}>
+                <template for:each={accList.data} for:item="acc">
+                    <c-lookup-result acc-name={acc.Name} acc-detail={acc} key={id}></c-lookup-result>
+                </template>
+            </template>
+            <template if:false={accList.data}>
+                No data to display
+            </template>
+        </div>
+    </template>
+    <template if:true={isRowClicked}>
+        <c-contact-details acc-detail={accDetail} acc-id={accId} acc-name={accName} onresetsearch={resetSearch}></c-contact-details>
+    </template>
+    
+</template>

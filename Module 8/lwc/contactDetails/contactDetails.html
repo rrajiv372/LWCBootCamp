@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Selected Account" icon-name="standard:account">
+        <p class="sld-var-m-around_medium">{accName}</p>
+        <p class="sld-var-m-around_medium slds-text-body_small">{accDetail}</p>
+    </lightning-card>
+    <lightning-card>
+        <div class="slds-align_absolute-center">
+            <lightning-button label="ResetSearch" onclick={resetSearch} variant="brand"></lightning-button>
+        </div>
+    </lightning-card>
+    <lightning-card title="Selected Account" icon-name="standard:conatct">
+        <lightning-datatable
+        key-field="id"
+        data={contactList.data}
+        columns={columns}
+        hide-checkbox-column="true"
+        ></lightning-datatable>
+    </lightning-card>
+    
+</template>
