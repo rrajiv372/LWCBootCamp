@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Create Record Utility" icon-name="utility:record_create">
+        <lightning-combobox
+            name="Select Object"
+            label="Select Object"
+            value={objectApiName}
+            placeholder="Select Option"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+    </lightning-card>
+    <template if:true={objectApiName}>
+        <c-quick-create-form create-title={createTitle} object-api-name={objectApiName} ></c-quick-create-form>
+    </template>
+</template>

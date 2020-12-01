@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title={createTitle} icon-name="utility:record_create">
+        <lightning-record-edit-form object-api-name={objectApiName} onsuccess={handleSuccess}>
+            <div style="text-align: end;"> 
+                <lightning-button variant={btnVariant} label={showAllBtn} onclick={handleShowAll} ></lightning-button>
+            </div>
+
+            <template for:each={fields} for:item="field">
+                <template if:true={showAll}>
+                    <template if:true={field.updateable}>
+                        <lightning-input-field field-name={field.apiName} key={id}>
+                        </lightning-input-field>
+                    </template>
+                </template>
+                <template if:false={showAll}>
+                    <template if:true={field.updateable}>
+                        <template if:true={field.required}>
+                            <lightning-input-field field-name={field.apiName} key={id}>
+                            </lightning-input-field>
+                        </template>
+                    </template>
+                </template>
+            </template>
+            <lightning-button
+                class="slds-m-top_small"
+                type="submit"
+                label="Create new">
+            </lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>
