@@ -1,0 +1,13 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item flexibility="auto">
+            <template if:true={showSearchBy}>
+                <lightning-combobox name="searchBy" label="Search By" value={searchByOption} options={searchByOptions} data-id="searchby" class="searchBy"></lightning-combobox>
+            </template>
+            <lightning-input type="text" placeholder={searchPlaceHolder} data-id="searchInput" onkeyup={handleKeySearch}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto" class="findBtn">
+            <lightning-button label="Find" variant="brand" onclick={searchData}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

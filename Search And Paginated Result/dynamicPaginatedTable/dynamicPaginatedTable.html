@@ -1,0 +1,34 @@
+<template>
+    <lightning-layout style="margin: 20px;">
+        <lightning-layout-item flexibility="auto" style="margin-top: auto; margin-left: 12px;">
+            <lightning-button label="Cancel" style="float: right; margin-left: 12px;" onclick={cancel}></lightning-button>
+            <template if:true={currentItems}>
+                <lightning-button label={btnLabel} variant="brand" style="float: right; margin-left: 12px;" onclick={handleBtnClick}></lightning-button>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+    
+    <template if:true={currentItems}>
+        <lightning-combobox
+            name="Page size: "
+            label="Page size: "
+            value={pageSize}
+            options={pageSizes}
+            style="max-width: 75px;"
+            onchange={handlePageSizeChange}>
+        </lightning-combobox>
+
+        <lightning-datatable key-field="Id" data={currentItems} columns={columns} sorted-by={sortBy} sorted-direction={sortDirection} onsort={handleSortData}>
+        </lightning-datatable>
+        <c-paginator
+            page-number={pageNumber}
+            page-size={pageSize}
+            total-item-count={totalRecordCount}
+            onprevious={previousHandler}
+            onnext={nextHandler}>
+        </c-paginator>
+    </template>
+    <template if:false={currentItems}>
+        <label>No data to display!</label>
+    </template>
+</template>

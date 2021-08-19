@@ -1,0 +1,24 @@
+<template>
+    <label style="color: red;">{error}</label>
+    <c-dynamic-search-component
+        show-search-by=true
+        search-by-option={searchByOption}
+        search-by-options={searchByOptions}
+        search-place-holder="Search Contacts..."
+        onsearchdata={handleSearch}>
+    </c-dynamic-search-component>
+    
+    <c-dynamic-paginated-table
+        columns={columns}
+        items={items}
+        btn-label="Link"
+        onselectdata={handleUserAction}>
+    </c-dynamic-paginated-table>
+
+    <div class="spinner" id="testSpinner">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+            </lightning-spinner>
+        </template>
+    </div>
+</template>
